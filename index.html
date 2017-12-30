@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Ville Mondes" />
     <meta name="author" content="louisdecharsonville" />
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
     <title>Ville Mondes</title>
     <head>
@@ -18,7 +18,7 @@
          #map { position:absolute; top:0; bottom:0; width:100%; }
          .popup {margin:0; width: 300px; max-width: 300px;}
          img {max-width: 300px !important; max-height: 200px !important;}
-         .mapboxgl-popup-content {background-color: rgba(44,62,80,0.9); color:white; border-radius: 25px; width: 320px; height:340px;}
+         .mapboxgl-popup-content {background-color: rgba(44,62,80,0.9); color:white; border-radius: 25px; width: 320px; min-height:340px;}
          audio { position: absolute; left:25%; bottom:0; width: 50%; margin-bottom: 5px;}
          #titleaudio {
              margin: 8px;
@@ -100,7 +100,7 @@
         </div>
         <center>
             <!-- <div id="titre">Villes Mondes</div> -->
-            <button class="btn btn-sm" id="credit">Crédits</button>
+            <button class="btn btn-sm" id="credit">CrÃ©dits</button>
             <div id="titleaudio"></div>
             <audio id="audio" controls preload="metadata" title="Ville Monde">
             <source id="mp3player"  type="audio/mpeg">
@@ -110,10 +110,10 @@
         </center>
         <div id="popupcredit" class="hidden">
             <span class="crossquit">x</span>
-            <center><h3>Crédits</h3></center>
+            <center><h3>CrÃ©dits</h3></center>
             <hr style="background-color:white;">
-            <p>Contenu: <a href="https://www.franceculture.fr/emissions/villes-mondes">Villes Mondes</a> est une émission France Culture produite par <a href="https://www.franceculture.fr/personne-catherine-liber.html">Catherline Liber</a>. L'intégralité du contenu audio et des images sont la propriété de France Culture.</p>           
-            <p>Site Web: réalisation <a href="http://louisdecharson.github.io">@louisdecharson</a></p>
+            <p>Contenu: <a href="https://www.franceculture.fr/emissions/villes-mondes">Villes Mondes</a> est une Ã©mission France Culture produite par <a href="https://www.franceculture.fr/personne-catherine-liber.html">Catherline Liber</a>. L'intÃ©gralitÃ© du contenu audio et des images sont la propriÃ©tÃ© de France Culture.</p>           
+            <p>Site Web: rÃ©alisation <a href="http://louisdecharson.github.io">@louisdecharson</a></p>
         </div>
         <!-- <button class="ecouter btn btn-danger btn-sm" type="button" url="hello" style="position:absolute; left:0; top:0;">HELLO</button> -->
         <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
