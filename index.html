@@ -8,6 +8,15 @@
 
     <title>Ville Mondes</title>
     <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112346459-1"></script>
+        <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+
+         gtag('config', 'UA-112346459-1');
+        </script>
         <!-- JS SCRIPTS -->
         <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.43.0/mapbox-gl.js"></script>
         <!-- STYLESHEETS -->
@@ -16,67 +25,6 @@
         <style>
          body { margin:0; padding:0; }
          #map { position:absolute; top:0; bottom:0; width:100%; }
-         .popup {margin:0; width: 300px; max-width: 300px;}
-         img {max-width: 300px !important; max-height: 200px !important;}
-         .mapboxgl-popup-content {background-color: rgba(44,62,80,0.9); color:white; border-radius: 25px; width: 320px; min-height:340px;}
-         audio { position: absolute; left:25%; bottom:0; width: 50%; margin-bottom: 5px;}
-         #titleaudio {
-             margin: 8px;
-             display:none;
-             position: absolute;
-             left:8%; bottom:0;
-             width: 15%;
-             background-color: rgba(230, 76, 60, 0.9);
-             color: white;
-             font-size:16px;
-             border-radius: 10px;
-         }
-         #titleescale {
-             margin: 8px;
-             display:none;
-             position: absolute;
-             left:76%; bottom:0;
-             width: 15%;
-             background-color: rgba(52, 152, 219,0.9);
-             color: white;
-             font-size:16px;
-             border-radius: 10px;
-             z-index: 1000;
-         }
-         #credit {
-             margin: 4px;
-             position: absolute;
-             left:2%; top:0;
-             width: 10%;
-             background-color: rgba(44,62,80,0.9);
-             color: white;
-             font-size:12px;
-             border-radius: 10px;
-             z-index: 1000;
-         }
-         #titre {
-             margin: 0;
-             padding: 5px;
-             color: rgba(44,62,80,1);
-             font-size: 40px;
-             position: absolute;
-             top: 1%;
-             left: 40%;
-             font-weigth: bold;
-             font-family: Futura;
-             background-color: rgba(255,255,255,0.5);
-             border-radius: 10px;
-         }
-         #popupcredit{
-             display:none;
-             z-index: 1000;
-             position:absolute;
-             margin: 0;
-             width: 60%;
-             top: 5%; left:20%;
-             padding: 1%;
-             background-color: rgba(44,62,80,0.9); color:white; border-radius: 25px;
-         }
          .crossquit{
              position:absolute;
              color: white;
@@ -98,7 +46,9 @@
              color: rgba(44,62,80,1) ;
              
          }
-        </style> 
+        </style>
+        <link rel="stylesheet" href="main.css" type="text/css" media="(min-width: 500px)"/>
+        <link rel="stylesheet" href="mobile.css" type="text/css" media="(max-width: 500px)"/>         
     </head>
 
     <body>
@@ -122,7 +72,6 @@
             <p>Site Web: réalisation <a href="https://twitter.com/louisdecharson">@louisdecharson</a></p>
             <p>Code: <a href="http://github.com/louisdecharson/villesmondes">Github</a>
         </div>
-        <!-- <button class="ecouter btn btn-danger btn-sm" type="button" url="hello" style="position:absolute; left:0; top:0;">HELLO</button> -->
         <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" integrity="sha384-VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU" crossorigin="anonymous"></script>
         <script>
@@ -157,7 +106,8 @@
                          .setLngLat(e.features[0].geometry.coordinates)
                          .setHTML(e.features[0].properties.description)
                          .addTo(map);
-             
+             var coord =  [e.features[0].geometry.coordinates[0],e.features[0].geometry.coordinates[1]-30];
+             map.flyTo({center:coord});
          });
 
          // Change the cursor to a pointer when the mouse is over the places layer.
