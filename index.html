@@ -106,7 +106,8 @@
                          .setLngLat(e.features[0].geometry.coordinates)
                          .setHTML(e.features[0].properties.description)
                          .addTo(map);
-             var coord =  [e.features[0].geometry.coordinates[0],e.features[0].geometry.coordinates[1]-30];
+             var zoom = map.getZoom();
+             var coord =  [e.features[0].geometry.coordinates[0],e.features[0].geometry.coordinates[1]-30/zoom];
              map.flyTo({center:coord});
          });
 
